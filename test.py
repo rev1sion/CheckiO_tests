@@ -17,7 +17,7 @@ import re
 
 
 def popular_words(text: str, words: list) -> dict:
-    z = [x.lower() for x in re.findall('\w+', text) for w in words if re.findall(r'\b%s\b' % w, x.lower())]
+    z = [x.lower() for x in re.findall('[A-Za-z\']+(?:\'[A-Za-z]+)?', text) for w in words if re.findall(r'\b%s\b' % w, x.lower())]
     result = []
     for w in words:
         result.append((w, z.count(w)))
